@@ -15,15 +15,15 @@ import com.yt.backendbeta.ServiceImpl.CourseImpl;
  * Servlet implementation class Course
  */
 
-@WebServlet("/Course")
-public class CourseClass extends HttpServlet {
+@WebServlet("/addorupdatecourse")
+public class AddOrUpdateCourse extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CourseClass() {
+    public AddOrUpdateCourse() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -62,7 +62,7 @@ public class CourseClass extends HttpServlet {
 				courseImpl.addCourse(course);
 			}
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("Course.jsp"); 
+		RequestDispatcher rd = request.getRequestDispatcher("getcourse"); 
         rd.forward(request, response);
 	}
 

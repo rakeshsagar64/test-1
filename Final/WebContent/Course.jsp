@@ -21,7 +21,7 @@
         <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
            <div class="jumbotron" id="course-table">
                <h1>Add Course</h1><hr>          
-                    <form action="CourseClass" method="post">
+                    <form action="addorupdatecourse" method="post">
                         <div class="custom-input">
                             <input type="text" name="courseName" placeholder="" required="">
                             <label for="">Course Name:</label>
