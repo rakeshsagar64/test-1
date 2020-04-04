@@ -1,6 +1,8 @@
 package com.yt.backendbeta.ServiceImpl;
 
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,6 +41,29 @@ public class CourseImpl implements CourseInterface{
 	    session.getTransaction().commit();
 	    session.close();
 	    return crs;
+	}
+	@Override
+	public List<Course> getAllCourse() {
+		// TODO Auto-generated method stub
+		SessionFactory connection = ConnectorClass.getConnection();
+		Session session = connection.openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from Course");
+		 List<Course> courseList = (List<Course>)query.list();
+	    session.getTransaction().commit();
+	    session.close();
+	    return courseList;
+	}
+	@Override
+	public boolean updateCourse(Course course) throws Exception{
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		SessionFactory connection = ConnectorClass.getConnection();
+		Session session = connection.openSession();
+		session.beginTransaction();
+		session.update(course);
+	    session.close();
+	    return true;
 	}
 
 }

@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-
-<%@page import="org.hibernate.Query"%>
-<%@page import="org.hibernate.Session"%>
-<%@page import="com.yt.backendbeta.Utility.ConnectorClass"%>
-<%@page import="org.hibernate.SessionFactory"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
-<%@page import="com.yt.backendbeta.Entity.Course"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,17 +8,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!-- <link rel="stylesheet" href="coursestyle.css">-->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/coursestyle.css" /> 
-
-
 </head>
-<%
-SessionFactory connection = ConnectorClass.getConnection();
-Session session2 = connection.openSession();
-session2.getTransaction().begin();
-Query query = session2.createQuery("from Course");
-List<Course> list = (List<Course>) query.list();
-session2.close();
-%>
+
 <body>
     <div class="container fluid p-10 col-lg-12 col-md-12 col-xs-12 col-sm-12">
         <div class="row" id="header">
