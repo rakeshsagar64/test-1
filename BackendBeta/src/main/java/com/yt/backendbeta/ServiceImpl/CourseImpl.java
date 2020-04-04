@@ -14,11 +14,11 @@ public class CourseImpl implements CourseInterface{
 
 	public void addCourse(Course course) {
 		SessionFactory connection = ConnectorClass.getConnection();
-		Session session = connection.openSession();
+		Session session = connection.getCurrentSession();
 		session.beginTransaction();
 		session.save(course);
 	    session.getTransaction().commit();
-	    session.close();		
+//	    session.close();		
 	}
 	public int getCourseId(String course) {
 		SessionFactory connection = ConnectorClass.getConnection();
@@ -33,36 +33,34 @@ public class CourseImpl implements CourseInterface{
 	}
 	public Course getCourseObject(String course) {
 		SessionFactory connection = ConnectorClass.getConnection();
-		Session session = connection.openSession();
+		Session session = connection.getCurrentSession();
 		session.beginTransaction();
 		Query query = session.createQuery("from Course cr where courseName=:name");
 		query.setParameter("name", course);
 		Course crs = (Course) query.uniqueResult();
 	    session.getTransaction().commit();
-	    session.close();
+//	    session.close();
 	    return crs;
 	}
-	@Override
+	
 	public List<Course> getAllCourse() {
 		// TODO Auto-generated method stub
 		SessionFactory connection = ConnectorClass.getConnection();
-		Session session = connection.openSession();
+		Session session = connection.getCurrentSession();
 		session.beginTransaction();
 		Query query = session.createQuery("from Course");
 		 List<Course> courseList = (List<Course>)query.list();
 	    session.getTransaction().commit();
-	    session.close();
+//	    session.close();
 	    return courseList;
 	}
-	@Override
+	
 	public boolean updateCourse(Course course) throws Exception{
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
 		SessionFactory connection = ConnectorClass.getConnection();
-		Session session = connection.openSession();
+		Session session = connection.getCurrentSession();
 		session.beginTransaction();
 		session.update(course);
-	    session.close();
+//	    session.close();
 	    return true;
 	}
 

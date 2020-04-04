@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
 <!-- <link rel="stylesheet" href="coursestyle.css">-->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/coursestyle.css" /> 
 </head>
-
 <body>
     <div class="container fluid p-10 col-lg-12 col-md-12 col-xs-12 col-sm-12">
         <div class="row" id="header">
@@ -34,36 +34,29 @@
                                <input type="submit" name="button" value="Create"></input>                                
                                <button onclick="location.href = 'Homepage.jsp';" class="button-wrapper">Home</button>                           
                          </div>
-                    </form>                  
+                    </form>                  	
                </div>
           </div>
-       
-       
         <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
             <div class="jumbotron" id="course-table">
-                <h1>Course Table</h1><hr>  
-
+                <h1>Course Table</h1><hr>
                 <div class="table-div">
-                   
                      <div class="table-body">
                         <table class="content-table">
-                        
                         <tbody>
-                          <%for(Course cr:list) {%>
-                              <tr>       
-                              <td><%=cr.getId() %></td>
-                              <td><%=cr.getCourseName() %></td>
-                              <td><%=cr.getCourseSyllabus() %></td>                              
+							<c:forEach items="${courses}" var="item">
+							 <tr>       
+                              <td>${item.id}</td>
+                              <td>${item.courseName}</td>
+                              <td>${item.courseSyllabus}</td>                              
                           </tr>
-                        <%}%>                       
+							</c:forEach>
                         </tbody>
                       </table>
                       </div>
                     </div>            
             </div>            
         </div>
-           
-                
        </div>
     </div> 
 </body>
